@@ -711,6 +711,228 @@ footer {
 }
 
 /* ==========================================
+   ACESSIBILIDADE
+   ========================================== */
+
+/* Classe para ocultar visualmente mas manter acessível */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Botões de acessibilidade na navbar */
+.accessibility-controls {
+    display: flex;
+    gap: 0.8rem;
+    margin-left: auto;
+}
+
+.a11y-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.a11y-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: white;
+}
+
+.a11y-btn.active {
+    background: var(--tertiary-color);
+    color: #2C3E50;
+    border-color: var(--tertiary-color);
+}
+
+/* Container de Libras */
+.libras-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 350px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+}
+
+.libras-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1rem;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.libras-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+}
+
+.libras-video {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.libras-video .placeholder {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.libras-video .placeholder p {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.libras-video .placeholder small {
+    display: block;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* Alto Contraste */
+body.high-contrast {
+    background-color: #000;
+    color: #FFF;
+}
+
+body.high-contrast .navbar {
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+    border-bottom: 3px solid #FFD93D;
+}
+
+body.high-contrast .hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    color: #FFF;
+}
+
+body.high-contrast .hero h1,
+body.high-contrast .hero p {
+    color: #FFF;
+    text-shadow: 2px 2px 0px #FFD93D;
+}
+
+body.high-contrast main {
+    background-color: #000;
+    color: #FFF;
+}
+
+body.high-contrast .info-card,
+body.high-contrast .about-card,
+body.high-contrast .quiz-content,
+body.high-contrast .results-content,
+body.high-contrast .intro-content {
+    background: #1a1a1a;
+    color: #FFF;
+    border: 3px solid #FFD93D;
+}
+
+body.high-contrast .info-card h3,
+body.high-contrast .about-card h3 {
+    color: #FFD93D;
+}
+
+body.high-contrast .btn-primary {
+    background: #FFD93D;
+    color: #000;
+    border: 2px solid #000;
+}
+
+body.high-contrast .btn-primary:hover {
+    background: #FFF;
+}
+
+body.high-contrast .btn-secondary {
+    background: #4ECDC4;
+    color: #000;
+    border: 2px solid #000;
+}
+
+body.high-contrast #map {
+    border: 3px solid #FFD93D;
+}
+
+body.high-contrast .map-legend {
+    background: #1a1a1a;
+    color: #FFF;
+    border: 2px solid #FFD93D;
+}
+
+body.high-contrast .legend-item,
+body.high-contrast .ethnia-item {
+    color: #FFF;
+}
+
+body.high-contrast .legend-color,
+body.high-contrast .ethnia-color {
+    border: 2px solid #FFD93D;
+}
+
+body.high-contrast .option-btn {
+    background: #2a2a2a;
+    color: #FFF;
+    border: 2px solid #FFD93D;
+}
+
+body.high-contrast .option-btn:hover {
+    background: #3a3a3a;
+    border-color: #FFF;
+}
+
+body.high-contrast footer {
+    background: #000;
+    border-top: 3px solid #FFD93D;
+}
+
+@media (max-width: 768px) {
+    .accessibility-controls {
+        gap: 0.4rem;
+        margin-left: auto;
+    }
+
+    .a11y-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .libras-container {
+        width: 250px;
+        height: 300px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* ==========================================
    LEAFLET CUSTOMIZAÇÃO
    ========================================== */
 .leaflet-popup-content {

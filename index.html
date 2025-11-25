@@ -11,15 +11,26 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="container">
+        <div class="container navbar-content">
             <div class="logo">🌍 Povos Africanos no Brasil</div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Mapa</a></li>
                 <li><a href="about.html">Curiosidades</a></li>
                 <li><a href="quiz.html">Quiz</a></li>
             </ul>
+            <div class="accessibility-controls">
+                <button id="contrast-toggle" class="a11y-btn" aria-label="Alternar alto contraste" title="Alto Contraste">
+                    🌓 Contraste
+                </button>
+                <button id="libras-toggle" class="a11y-btn" aria-label="Alternar Libras" title="Libras">
+                    🤟 Libras
+                </button>
+            </div>
         </div>
     </nav>
+
+    <!-- Região viva para anúncios (leitores de tela) -->
+    <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
     <header class="hero">
         <div class="container">
@@ -88,6 +99,7 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="js/accessibility.js"></script>
     <script src="js/app.js"></script>
     <script src="js/map.js"></script>
 </body>
