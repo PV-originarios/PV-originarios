@@ -95,6 +95,70 @@ const mapData = {
             cultural: "🎪 Congada | 🐎 Cavalhada | 🎵 Música",
             facts: "Patrimônio da Humanidade. Festas populares com herança africana."
         }
+        ,
+        {
+            name: "São Paulo - São Paulo",
+            coords: [-23.5505, -46.6333],
+            type: "cultural",
+            ethnias: ["Banto", "Yorubá"],
+            info: "<b>São Paulo - SP</b><br>Grande centro urbano com comunidades afrodescendentes de diversas origens. Forte presença em música, religiões e movimentos culturais.",
+            cultural: "🎶 Samba | 🥁 Maracatu | ✊ Movimentos sociais",
+            facts: "Maior população urbana do país; intensa mistura cultural e patrimônios imateriais afro-brasileiros."
+        },
+        {
+            name: "Porto Alegre - Rio Grande do Sul",
+            coords: [-30.0346, -51.2177],
+            type: "cultural",
+            ethnias: ["Banto"],
+            info: "<b>Porto Alegre - RS</b><br>Comunidades afro-brasileiras presentes desde o período colonial, com tradições locais e grupos culturais.",
+            cultural: "🎭 Folclore | 🎵 Samba de Roda local",
+            facts: "História afro no Sul frequentemente sub-representada; existem iniciativas de preservação cultural."
+        },
+        {
+            name: "Fortaleza - Ceará",
+            coords: [-3.7319, -38.5267],
+            type: "cultural",
+            ethnias: ["Yorubá", "Banto"],
+            info: "<b>Fortaleza - CE</b><br>Porto e centro regional com manifestações religiosas e musicais de origem africana.",
+            cultural: "🪘 Forró com influência africana | 🕯️ Cultos afro-brasileiros",
+            facts: "Ricas práticas culturais afrodescendentes em festa e religiosidade popular."
+        },
+        {
+            name: "Natal - Rio Grande do Norte",
+            coords: [-5.7804, -35.1996],
+            type: "cultural",
+            ethnias: ["Banto"],
+            info: "<b>Natal - RN</b><br>Porto histórico com presença de populações africanas que contribuíram para a cultura local.",
+            cultural: "🎵 Ritmos locais | 🥁 Rituais festivos",
+            facts: "Comunidades quilombolas e tradições locais preservam memórias africanas na região."
+        },
+        {
+            name: "Aracaju - Sergipe",
+            coords: [-10.9472, -37.0731],
+            type: "cultural",
+            ethnias: ["Yorubá", "Banto"],
+            info: "<b>Aracaju - SE</b><br>Região com forte influência afro nas festas populares e religiosidade.",
+            cultural: "🎉 Festas populares | 🥁 Capoeira local",
+            facts: "Tradições afro preservadas em festas e na culinária regional."
+        },
+        {
+            name: "Manaus - Amazonas",
+            coords: [-3.1190, -60.0217],
+            type: "cultural",
+            ethnias: ["Banto"],
+            info: "<b>Manaus - AM</b><br>Mesmo distante do eixo atlântico, Manaus recebeu populações africanas que influenciaram música e culinária locais.",
+            cultural: "🍲 Culinária | 🎶 Misturas musicais",
+            facts: "Heranças africanas presentes nas celebrações e na cultura popular amazônica."
+        },
+        {
+            name: "Ilhéus - Bahia",
+            coords: [-14.7931, -39.0466],
+            type: "cultural",
+            ethnias: ["Yorubá", "Banto"],
+            info: "<b>Ilhéus - BA</b><br>Região cacaueira com forte presença afro nas tradições e celebrações locais.",
+            cultural: "🎭 Festas populares | 🍲 Culinária baiana",
+            facts: "Influência africana visível na cultura, música e gastronomia da região."
+        }
     ]
 };
 
