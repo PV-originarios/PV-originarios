@@ -1,0 +1,135 @@
+⚡ INÍCIO RÁPIDO - Guia em 5 Minutos
+
+═══════════════════════════════════════════════════════════════
+
+🚀 COMECE AGORA!
+
+1️⃣ TESTAR LOCALMENTE (Imediatamente)
+   ├─ Abra o explorador de arquivos
+   ├─ Localize: index.html
+   ├─ Clique duplo para abrir no navegador
+   └─ ✅ Pronto! Seu site está rodando!
+
+2️⃣ PUBLICAR NA WEB (5-10 minutos)
+   ├─ Leia: GITHUB_PAGES_GUIDE.md
+   ├─ Siga o passo-a-passo
+   └─ ✅ Seu site estará online!
+
+3️⃣ MELHORAR O PROJETO (Opcional)
+   ├─ Leia: DESENVOLVIMENTO.md
+   ├─ Adicione novos locais/perguntas
+   └─ ✅ Personalize conforme desejar!
+
+═══════════════════════════════════════════════════════════════
+
+📁 ARQUIVOS PRINCIPAIS
+
+🗺️  index.html      → Mapa interativo com 10 locais
+📚 about.html      → 6 cards com curiosidades
+🎯 quiz.html       → Quiz com 30 perguntas
+
+═══════════════════════════════════════════════════════════════
+
+📚 DOCUMENTAÇÃO
+
+📖 README.md                 → O que é o projeto
+🚀 GITHUB_PAGES_GUIDE.md    → Como publicar
+🔧 DESENVOLVIMENTO.md        → Para desenvolvedores
+📊 PROJECT_SUMMARY.md        → Sumário completo
+
+═══════════════════════════════════════════════════════════════
+
+🎓 O QUE VOCÊ TEM
+
+✅ Mapa interativo com Leaflet.js
+   • 10 locais históricos mapeados
+   • Pop-ups informativos
+   • Legenda visual
+
+✅ Página de curiosidades
+   • 6 cards educativos
+   • Temas variados
+   • Design responsivo
+
+✅ Quiz interativo
+   • 30 perguntas
+   • 3 níveis de dificuldade
+   • Sistema de pontuação
+   • Feedback detalhado
+
+✅ Design moderno
+   • Totalmente responsivo
+   • Cores temáticas
+   • Acessibilidade
+
+═══════════════════════════════════════════════════════════════
+
+💡 DICAS RÁPIDAS
+
+🔍 Para explorar o código:
+   • Abra qualquer arquivo .html com editor de texto
+   • Veja como tudo funciona junto!
+
+🎨 Para customizar:
+   • Cores: edite assets/css/style.css
+   • Conteúdo: edite os arquivos .html
+   • Lógica: edite os arquivos em js/
+
+📱 Para testar em mobile:
+   • Abra DevTools (F12)
+   • Clique no ícone de smartphone
+   • Teste em diferentes tamanhos
+
+═══════════════════════════════════════════════════════════════
+
+❓ PERGUNTAS FREQUENTES
+
+P: Como faço para publicar na web?
+R: Leia GITHUB_PAGES_GUIDE.md - é bem fácil!
+
+P: Posso adicionar novos locais ao mapa?
+R: Sim! Veja DESENVOLVIMENTO.md para instruções
+
+P: Como adiciono mais perguntas ao quiz?
+R: Edite js/quiz.js - siga o formato dos dados
+
+P: O projeto funciona sem internet?
+R: Quase tudo, exceto o mapa (precisa baixar tiles)
+
+P: Posso compartilhar com amigos?
+R: Sim! Compartilhe o link da web ou os arquivos
+
+═══════════════════════════════════════════════════════════════
+
+🎯 SEU PRÓXIMO PASSO
+
+👉 OPÇÃO 1: Teste localmente agora mesmo
+   • Abra index.html no seu navegador
+   • Explore todas as funcionalidades!
+
+👉 OPÇÃO 2: Publique na web
+   • Siga GITHUB_PAGES_GUIDE.md
+   • Seu site estará online em 10 minutos!
+
+👉 OPÇÃO 3: Customize o projeto
+   • Leia DESENVOLVIMENTO.md
+   • Adicione seu próprio conteúdo!
+
+═══════════════════════════════════════════════════════════════
+
+📞 PRECISA DE AJUDA?
+
+1. Consulte a documentação (.md files)
+2. Verifique os comentários no código
+3. Use DevTools (F12) para debugar
+4. Procure na internet por Leaflet.js e JavaScript
+
+═══════════════════════════════════════════════════════════════
+
+🎉 TUDO PRONTO!
+
+Seu projeto educativo está 100% funcional!
+
+Divirta-se explorando a história dos povos africanos! 🌍
+
+═══════════════════════════════════════════════════════════════
