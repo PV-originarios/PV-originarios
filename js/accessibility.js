@@ -89,47 +89,48 @@ const accessibility = {
             container = document.createElement('div');
             container.id = 'libras-container';
             container.className = 'libras-container';
-            container.setAttribute('aria-label', 'Intérprete de Libras');
+            container.setAttribute('aria-label', 'Intérprete de Libras VLibras');
             container.innerHTML = `
                 <div class="libras-header">
-                    <span>🤟 Libras</span>
+                    <span>🤟 Libras - VLibras</span>
                     <button class="libras-close" aria-label="Fechar Libras" onclick="accessibility.toggleLibras()">×</button>
                 </div>
                 <div class="libras-video">
-                    <div id="hand-talk-widget" class="ht-widget" data-ht-tool="chat" data-ht-compact="bottom"></div>
+                    <div id="vlibras" class="vlibras-container"></div>
                     <div class="libras-info">
-                        <p><strong>🤟 Intérprete de Libras</strong></p>
-                        <small>Powered by Hand Talk - Tradução automática para Libras</small>
+                        <p><strong>🤟 Intérprete de Libras Automático</strong></p>
+                        <small>Powered by VLibras - Projeto do Governo Brasileiro (SEAD)</small>
                     </div>
                 </div>
             `;
             document.body.insertBefore(container, document.body.firstChild);
             
-            // Carrega Hand Talk SDK se disponível
-            this.loadHandTalkSDK();
+            // Carrega VLibras SDK se disponível
+            this.loadVLibrasSDK();
         }
         container.style.display = 'block';
     },
 
-    // Carrega Hand Talk SDK
-    loadHandTalkSDK() {
+    // Carrega VLibras SDK (solução brasileira gratuita)
+    loadVLibrasSDK() {
         // Verifica se o script já foi carregado
-        if (window.ht_widget) {
+        if (window.vlibras) {
             return;
         }
         
-        // Carrega script do Hand Talk
+        // Carrega script do VLibras
         const script = document.createElement('script');
-        script.src = 'https://cdn.handtalk.me/widget/widget.js';
+        script.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
         script.async = true;
         script.onload = () => {
-            // Inicializa Hand Talk após carregamento
-            if (window.ht_widget) {
-                window.ht_widget.mount({
-                    token: 'demo', // Token demo (substituir com token real)
-                    tool: 'chat',
-                    container: '#hand-talk-widget',
-                    lang: 'pt-BR'
+            // Inicializa VLibras após carregamento
+            if (window.vlibras) {
+                window.vlibras.start({
+                    root: document.getElementById('vlibras'),
+                    mode: 'floating',
+                    opacity: 1,
+                    position: 'bottom-right',
+                    scale: 1
                 });
             }
         };
