@@ -180,8 +180,31 @@ function initializeMap() {
         resistance: '#FFD93D'    // Amarelo - Locais de Resistência
     };
 
-    // Cria um grupo de clustering
-    const markersCluster = L.markerClusterGroup();
+    // Cria um grupo de clustering com ícone customizado
+    const markersCluster = L.markerClusterGroup({
+        iconCreateFunction: function(cluster) {
+            const childMarkers = cluster.getAllChildMarkers();
+            const counts = {};
+            childMarkers.forEach(m => {
+                const eth = m.options.ethnia || 'Múltiplas';
+                counts[eth] = (counts[eth] || 0) + 1;
+            });
+
+            // Determina etnia predominante
+            let predominant = null;
+            let max = 0;
+            for (const k in counts) {
+                if (counts[k] > max) { max = counts[k]; predominant = k; }
+            }
+
+            const color = (predominant && ethniasColors[predominant]) ? ethniasColors[predominant] : '#777';
+            const childCount = cluster.getChildCount();
+            const sizeClass = childCount < 10 ? 'small' : (childCount < 50 ? 'medium' : 'large');
+
+            const html = `<div class="marker-cluster marker-cluster-${sizeClass}" style="background:${color};"><span>${childCount}</span></div>`;
+            return L.divIcon({ html: html, className: 'marker-cluster-icon', iconSize: L.point(40, 40) });
+        }
+    });
 
     // Adiciona os marcadores no mapa
     mapData.locations.forEach(location => {
