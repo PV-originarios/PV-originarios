@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Povos Africanos no Brasil</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🌍 Povos Africanos no Brasil</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Mapa</a></li>
+                <li><a href="about.html">Curiosidades</a></li>
+                <li><a href="quiz.html" class="active">Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Quiz Interativo</h1>
+            <p>Teste seu conhecimento sobre os povos africanos e sua influência no Brasil</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="quiz-container">
+                <!-- Tela Inicial -->
+                <div id="intro-screen" class="quiz-screen active">
+                    <div class="intro-content">
+                        <h2>Bem-vindo ao Quiz!</h2>
+                        <p>Você terá <strong>10 perguntas</strong> sobre os povos africanos e sua história no Brasil.</p>
+                        <p>Responda com cuidado e aprender enquanto se diverte!</p>
+                        <div class="difficulty-selector">
+                            <label>
+                                <input type="radio" name="difficulty" value="easy" checked>
+                                <span>Fácil 👶</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="difficulty" value="medium">
+                                <span>Médio 🎯</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="difficulty" value="hard">
+                                <span>Difícil 🔥</span>
+                            </label>
+                        </div>
+                        <button onclick="app.startQuiz()" class="btn btn-primary">Começar Quiz</button>
+                    </div>
+                </div>
+
+                <!-- Tela do Quiz -->
+                <div id="quiz-screen" class="quiz-screen">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                        <p>Pergunta <span id="current-question">1</span> de <span id="total-questions">10</span></p>
+                    </div>
+
+                    <div class="quiz-content">
+                        <h2 id="question-text"></h2>
+                        <div id="options-container" class="options-grid"></div>
+                    </div>
+
+                    <div class="quiz-actions">
+                        <button onclick="app.previousQuestion()" class="btn btn-secondary" id="prev-btn" disabled>
+                            ← Anterior
+                        </button>
+                        <button onclick="app.nextQuestion()" class="btn btn-secondary" id="next-btn">
+                            Próxima →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tela de Resultados -->
+                <div id="results-screen" class="quiz-screen">
+                    <div class="results-content">
+                        <div id="results-icon" class="results-icon"></div>
+                        <h2 id="results-title"></h2>
+                        <p id="results-message"></p>
+                        <div class="results-stats">
+                            <div class="stat">
+                                <p class="stat-label">Acertos</p>
+                                <p class="stat-value" id="correct-count">0</p>
+                            </div>
+                            <div class="stat">
+                                <p class="stat-label">Erros</p>
+                                <p class="stat-value" id="wrong-count">0</p>
+                            </div>
+                            <div class="stat">
+                                <p class="stat-label">Percentual</p>
+                                <p class="stat-value" id="percentage">0%</p>
+                            </div>
+                        </div>
+                        <div id="results-details" class="results-details"></div>
+                        <div class="results-actions">
+                            <button onclick="location.reload()" class="btn btn-primary">Fazer Quiz Novamente</button>
+                            <button onclick="window.location.href='about.html'" class="btn btn-secondary">Aprender Mais</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Povos Africanos no Brasil. Um projeto educativo e de valorização da história africana.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
