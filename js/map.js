@@ -209,9 +209,12 @@ function initializeMap() {
     // Adiciona os marcadores no mapa
     mapData.locations.forEach(location => {
         // Define o ícone baseado no tipo
+        // Define cor do tipo (usada na borda do popup)
+        const markerColor = typeColors[location.type];
+
         // Escolhe cor baseado na etnia principal (primeira da lista)
         const primaryEthnia = (location.ethnias && location.ethnias.length) ? location.ethnias[0] : null;
-        const ethColor = primaryEthnia && ethniasColors[primaryEthnia] ? ethniasColors[primaryEthnia] : typeColors[location.type];
+        const ethColor = primaryEthnia && ethniasColors[primaryEthnia] ? ethniasColors[primaryEthnia] : markerColor;
 
         // Cria um ícone personalizado com letra/emoji da etnia
         const label = primaryEthnia ? primaryEthnia[0].toUpperCase() : '•';
@@ -237,6 +240,9 @@ function initializeMap() {
 
         // Cria o marcador (sem adicionar direto ao mapa)
         const marker = L.marker(location.coords, { icon: customIcon });
+        // Atribui metadados ao marcador para uso no cluster
+        marker.options.ethnia = primaryEthnia;
+        marker.options.ethColor = ethColor;
 
         // Cria o conteúdo do popup
         const popupContent = `
