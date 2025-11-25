@@ -180,6 +180,15 @@ function initializeMap() {
         resistance: '#FFD93D'    // Amarelo - Locais de Resistência
     };
 
+    // Mapa de ícones (primeira letra) para cada etnia
+    const ethniasIcons = {
+        'Yorubá': 'Y',
+        'Banto': 'B',
+        'Fon': 'F',
+        'Jeje': 'J',
+        'Múltiplas': '∴'
+    };
+
     // Cria um grupo de clustering com ícone customizado
     const markersCluster = L.markerClusterGroup({
         iconCreateFunction: function(cluster) {
@@ -199,10 +208,42 @@ function initializeMap() {
 
             const color = (predominant && ethniasColors[predominant]) ? ethniasColors[predominant] : '#777';
             const childCount = cluster.getChildCount();
-            const sizeClass = childCount < 10 ? 'small' : (childCount < 50 ? 'medium' : 'large');
+            
+            // Tamanho dinâmico baseado na quantidade
+            let size, sizeClass, fontSize;
+            if (childCount < 5) {
+                size = 40; sizeClass = 'small'; fontSize = '12px';
+            } else if (childCount < 15) {
+                size = 50; sizeClass = 'medium'; fontSize = '14px';
+            } else if (childCount < 50) {
+                size = 60; sizeClass = 'large'; fontSize = '16px';
+            } else {
+                size = 70; sizeClass = 'xlarge'; fontSize = '18px';
+            }
 
-            const html = `<div class="marker-cluster marker-cluster-${sizeClass}" style="background:${color};"><span>${childCount}</span></div>`;
-            return L.divIcon({ html: html, className: 'marker-cluster-icon', iconSize: L.point(40, 40) });
+            // Ícone da etnia predominante
+            const ethIcon = (predominant && ethniasIcons[predominant]) ? ethniasIcons[predominant] : '•';
+
+            const html = `<div class="marker-cluster marker-cluster-${sizeClass}" style="
+                background:${color};
+                width:${size}px;
+                height:${size}px;
+                border-radius:50%;
+                border:3px solid rgba(255,255,255,0.95);
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                box-shadow:0 3px 8px rgba(0,0,0,0.25);
+                font-weight:700;
+                font-size:${fontSize};
+                color:white;
+            ">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+                    <span style="font-size:${parseInt(fontSize)*0.7}px;">${ethIcon}</span>
+                    <span>${childCount}</span>
+                </div>
+            </div>`;
+            return L.divIcon({ html: html, className: 'marker-cluster-icon', iconSize: L.point(size, size) });
         }
     });
 

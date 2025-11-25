@@ -755,16 +755,11 @@ footer {
 
 /* Estilo do ícone de cluster customizado */
 .marker-cluster-icon {
-    border-radius: 50%;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    border: 3px solid rgba(255,255,255,0.9);
+    /* estilos aplicados inline no HTML do cluster */
+    transition: transform 0.2s ease;
 }
-.marker-cluster-icon span {
-    font-weight: 700;
-    font-size: 14px;
+.marker-cluster-icon:hover {
+    /* efeito visual ao passar o mouse */
+    filter: brightness(1.1) drop-shadow(0 0 4px rgba(0,0,0,0.4));
 }
 
