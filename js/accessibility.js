@@ -96,15 +96,44 @@ const accessibility = {
                     <button class="libras-close" aria-label="Fechar Libras" onclick="accessibility.toggleLibras()">×</button>
                 </div>
                 <div class="libras-video">
-                    <div class="placeholder">
-                        <p>🤟 Intérprete de Libras em breve</p>
-                        <small>Integração com serviço de Libras</small>
+                    <div id="hand-talk-widget" class="ht-widget" data-ht-tool="chat" data-ht-compact="bottom"></div>
+                    <div class="libras-info">
+                        <p><strong>🤟 Intérprete de Libras</strong></p>
+                        <small>Powered by Hand Talk - Tradução automática para Libras</small>
                     </div>
                 </div>
             `;
             document.body.insertBefore(container, document.body.firstChild);
+            
+            // Carrega Hand Talk SDK se disponível
+            this.loadHandTalkSDK();
         }
         container.style.display = 'block';
+    },
+
+    // Carrega Hand Talk SDK
+    loadHandTalkSDK() {
+        // Verifica se o script já foi carregado
+        if (window.ht_widget) {
+            return;
+        }
+        
+        // Carrega script do Hand Talk
+        const script = document.createElement('script');
+        script.src = 'https://cdn.handtalk.me/widget/widget.js';
+        script.async = true;
+        script.onload = () => {
+            // Inicializa Hand Talk após carregamento
+            if (window.ht_widget) {
+                window.ht_widget.mount({
+                    token: 'demo', // Token demo (substituir com token real)
+                    tool: 'chat',
+                    container: '#hand-talk-widget',
+                    lang: 'pt-BR'
+                });
+            }
+        };
+        document.head.appendChild(script);
     },
 
     // Esconde container de Libras
