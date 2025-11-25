@@ -180,33 +180,40 @@ function initializeMap() {
         resistance: '#FFD93D'    // Amarelo - Locais de Resistência
     };
 
+    // Cria um grupo de clustering
+    const markersCluster = L.markerClusterGroup();
+
     // Adiciona os marcadores no mapa
     mapData.locations.forEach(location => {
         // Define o ícone baseado no tipo
-        const markerColor = typeColors[location.type];
-        
-        // Cria um ícone personalizado
+        // Escolhe cor baseado na etnia principal (primeira da lista)
+        const primaryEthnia = (location.ethnias && location.ethnias.length) ? location.ethnias[0] : null;
+        const ethColor = primaryEthnia && ethniasColors[primaryEthnia] ? ethniasColors[primaryEthnia] : typeColors[location.type];
+
+        // Cria um ícone personalizado com letra/emoji da etnia
+        const label = primaryEthnia ? primaryEthnia[0].toUpperCase() : '•';
         const customIcon = L.divIcon({
             html: `<div style="
-                width: 30px;
-                height: 30px;
-                background-color: ${markerColor};
+                width: 34px;
+                height: 34px;
+                background-color: ${ethColor};
                 border-radius: 50%;
                 border: 3px solid white;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 color: white;
-                font-size: 16px;
+                font-size: 14px;
+                font-weight: 700;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            ">📍</div>`,
+            ">${label}</div>`,
             className: 'custom-marker',
-            iconSize: [30, 30],
-            popupAnchor: [0, -15]
+            iconSize: [34, 34],
+            popupAnchor: [0, -16]
         });
 
-        // Cria o marcador
-        const marker = L.marker(location.coords, { icon: customIcon }).addTo(map);
+        // Cria o marcador (sem adicionar direto ao mapa)
+        const marker = L.marker(location.coords, { icon: customIcon });
 
         // Cria o conteúdo do popup
         const popupContent = `
@@ -228,11 +235,17 @@ function initializeMap() {
             className: 'custom-popup'
         });
 
-        // Adiciona evento de hover
+        // Adiciona evento de hover (abre popup)
         marker.on('mouseover', function() {
             this.openPopup();
         });
+
+        // Adiciona ao cluster
+        markersCluster.addLayer(marker);
     });
+
+    // Adiciona o cluster ao mapa
+    map.addLayer(markersCluster);
 
     // Adiciona controles
     L.control.zoom({ position: 'bottomright' }).addTo(map);
@@ -244,3 +257,12 @@ function initializeMap() {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { initializeMap };
 }
+
+// Mapeamento de cores por etnia para legendas e ícones
+const ethniasColors = {
+    'Yorubá': '#FF6B6B',
+    'Banto': '#4ECDC4',
+    'Fon': '#FFD93D',
+    'Jeje': '#8E44AD',
+    'Múltiplas': '#FF8C42'
+};

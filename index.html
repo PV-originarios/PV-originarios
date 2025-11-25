@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa Interativo dos Povos Africanos no Brasil</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -44,6 +46,14 @@
                         <span class="legend-color" style="background-color: #FFD93D;"></span>
                         <span>Locais de Resistência</span>
                     </div>
+                    <div class="ethnia-legend">
+                        <h4 style="margin-top:0.6rem; margin-bottom:0.4rem;">Etnias (ícones)</h4>
+                        <div class="ethnia-item"><span class="ethnia-color" style="background:#FF6B6B"></span><span>Yorubá</span></div>
+                        <div class="ethnia-item"><span class="ethnia-color" style="background:#4ECDC4"></span><span>Banto</span></div>
+                        <div class="ethnia-item"><span class="ethnia-color" style="background:#FFD93D"></span><span>Fon</span></div>
+                        <div class="ethnia-item"><span class="ethnia-color" style="background:#8E44AD"></span><span>Jeje</span></div>
+                        <div class="ethnia-item"><span class="ethnia-color" style="background:#FF8C42"></span><span>Múltiplas</span></div>
+                    </div>
                 </div>
             </section>
 
@@ -77,6 +87,7 @@
     </footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
     <script src="js/app.js"></script>
     <script src="js/map.js"></script>
 </body>
